@@ -62,7 +62,7 @@
 					<hr class="mdc-list-divider">
 					<h6 class="mdc-list-group__subheader">Gerencie:</h6>
 
-					<a onclick="drawer.open = false" class="mdc-list-item mdc-list-item--activated" aria-selected="true">
+					<a onclick="drawer.open = false" id="itemDashboard" class="mdc-list-item mdc-list-item--activated" aria-selected="true">
 						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
 						<span class="mdc-list-item__text">Dashboard</span>
 					</a>
@@ -102,7 +102,7 @@
 						<span class="mdc-list-item__text">Sobre</span>	
 					</a>
 
-					<a class="mdc-list-item" aria-selected="true">
+					<a class="mdc-list-item" id="itemSignOut" aria-selected="true" onclick="firebase.auth().signOut(); location.reload();">
 						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
 						<span class="mdc-list-item__text">Encerrar sessão</span>	
 					</a>
@@ -141,7 +141,23 @@
 		<!-- JS LIBRARIES -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/material-components-web@0.40.1/dist/material-components-web.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+
+		<script>
+			// Initialize Firebase
+			var config = {
+			  apiKey: "AIzaSyCDfW1ywMy2bk1b4VimZq4VhUKkeB4PTWk",
+			  authDomain: "code101-b884a.firebaseapp.com",
+			  databaseURL: "https://code101-b884a.firebaseio.com",
+			  projectId: "code101-b884a",
+			  storageBucket: "code101-b884a.appspot.com",
+			  messagingSenderId: "681687653301"
+			};
+			firebase.initializeApp(config);
+		</script>
+
 		<script src="js/code101.js"></script>
-		
 	</body>
 </html>
