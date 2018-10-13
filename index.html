@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+
+		<!-- META TAGS -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+		<meta name="keywords" content="code101, code, programming, learn">
+		<meta name="description" content="Aplicação web progressiva para consultar comandos de linguagens de programação"> <!-- 150 WORDS -->
+
+		<!-- OPENGRAPH META TAGS -->
+		<meta property="og:title" content="code101">
+		<meta property="og:description" content="Aplicação web progressiva para consultar comandos de linguagens de programação">
+		<meta property="og:image" content="/">
+
+		<!-- ANDROID META TAGS -->
+		<meta name="theme-color" content="#6200cc">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- APPLE META TAGS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-title" content="code101">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+		<!-- MICROSOFT META TAGS -->
+		<meta name="msapplication-navbutton-color" content="#6200cc">
+		<meta name="msapplication-TileColor" content="#6200cc">
+		<meta name="msapplication-TileImage" content="icon-144x144.png">
+
+		<title>codeAdmin</title>
+
+		<!-- FAVICONS -->
+		<link rel="shortcut icon" href="res/app-icons/favicon-16x16.png" type="image/png">
+
+		<!-- MANIFEST JSON -->
+		<link rel="manifest" href="manifest.json">
+
+		<!-- CSS LIBRARIES -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/white/pace-theme-flash.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-components-web@0.40.1/dist/material-components-web.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+		<link rel="stylesheet" href="css/w3pro.css">
+		<link rel="stylesheet" href="css/code101.css">
+
+		<!-- FONTS -->
+		<link async href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+		<link async rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link async rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+	</head>
+	<body>
+
+		<!-- DRAWER -->
+		<aside class="mdc-drawer mdc-drawer--modal">
+			<div class="mdc-drawer__header">
+				<h3 class="mdc-drawer__title codeadmin-logo">codeAdmin</h3>
+				<h6 class="mdc-drawer__subtitle">Let's code, let's manage</h6>
+				<div class="id_user">
+					<img src="res/user.png" class="profile_image"/>
+					<h6 class="mdc-typography--overline profile_name" >Username</h6>					
+				</div>
+				
+			</div>
+			<div class="mdc-drawer__content">
+				<nav class="mdc-list">
+					<hr class="mdc-list-divider">
+					<h6 class="mdc-list-group__subheader">Gerencie:</h6>
+
+					<a onclick="drawer.open = false" class="mdc-list-item mdc-list-item--activated" aria-selected="true">
+						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+						<span class="mdc-list-item__text">Dashboard</span>
+					</a>
+
+					<a class="mdc-list-item" aria-selected="true">
+						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">message</i>
+						<span class="mdc-list-item__text">Sugestões</span>
+					</a>
+
+					<a class="mdc-list-item" aria-selected="true">
+						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">contact_mail</i>
+						<span class="mdc-list-item__text">Enviar email</span>
+					</a>
+
+					<a class="mdc-list-item" aria-selected="true">
+							<i class="material-icons mdc-list-item__graphic" aria-hidden="true">update</i>
+							<span class="mdc-list-item__text">Ver registros</span>
+						</a>
+
+					<hr class="mdc-list-divider">
+					<h6 class="mdc-list-group__subheader">Sua Conta:</h6>
+
+					<a class="mdc-list-item" aria-selected="true">
+						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
+						<span class="mdc-list-item__text">Ver perfil</span>	
+					</a>
+
+					<a class="mdc-list-item" aria-selected="true">
+						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">photo_camera</i>
+						<span class="mdc-list-item__text">Trocar foto de perfil</span>	
+					</a>
+
+					<hr class="mdc-list-divider">
+
+					<a class="mdc-list-item" aria-selected="true">
+						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">info</i>
+						<span class="mdc-list-item__text">Sobre</span>	
+					</a>
+
+					<a class="mdc-list-item" aria-selected="true">
+						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
+						<span class="mdc-list-item__text">Encerrar sessão</span>	
+					</a>
+
+
+	
+				</nav>
+			</div>
+		</aside>
+
+		<div class="mdc-drawer-scrim"></div>
+
+		<!-- TOP APP BAR -->
+		<header id="topAppBar" class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-menu-anchor w3-card">
+			<div class="mdc-top-app-bar__row">
+
+				<!-- LEFT SECTION -->
+				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+
+					<!-- DRAWER BUTTON -->
+					<a id="drawerBtn" onclick="drawer.open = !drawer.open" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+
+					<!-- APP TITLE -->
+					<span id="appTitle" class="mdc-top-app-bar__title codeadmin-logo">codeAdmin</span>
+
+				</section>
+
+				<!-- RIGHT SECTION -->
+				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+
+					<!-- SEARCH ICON -->
+					<i class="material-icons mdc-top-app-bar__action-item" aria-label="Pesquisar" alt="Pesquisar" onclick="toggleSearchBar('open')">search</i>
+
+				</section>
+			</div>
+		</header>
+
+		
+
+		<!-- JS LIBRARIES -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/material-components-web@0.40.1/dist/material-components-web.min.js"></script>
+
+		<script src="js/code101.js"></script>
+	</body>
+</html>

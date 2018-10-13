@@ -1,0 +1,80 @@
+textarea {resize: none}
+
+* {box-sizing: border-box}
+
+body {
+	font-family: Roboto;
+	margin: 0;
+	height: 100vh;
+	background: #323232;
+}
+
+a,
+a:hover,
+a:focus {text-decoration: none}
+
+#pageContent {
+	padding: 10px;
+}
+
+#viewCard {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#drawerBtn, #menu-btn, .mdc-menu-anchor {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#topAppBar {font-size: 16px; background-color: firebrick;}
+
+#searchInput {outline: none}
+
+.material-icons-dark {color: rgba(0, 0, 0, 0.54) !important}
+
+.codeadmin-logo {font-family: "Press Start 2P"}
+
+
+.mdc-list-item--activated {
+	background-color: #b22222 !important;
+}
+
+
+.mdc-list-item--activated .mdc-list-item__graphic, .mdc-list-item--activated .mdc-list-item__text {
+	color: white !important;
+}
+
+
+
+
+
+
+/* ############ PROFILE ADMIN ########## */
+
+.id_user{
+	background-color: firebrick;
+	margin-top: 10px;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.profile_image{
+	width: 52px;
+	height: 52px;
+	border-radius: 360px;
+	float: left;
+	margin-right: 15px;
+}
+
+.profile_name{
+	color: #fafafa;
+	font-size: 12px;
+}
+
+.profile_function{
+	margin: none;
+}
