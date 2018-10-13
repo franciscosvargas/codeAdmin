@@ -32,15 +32,8 @@
 		<!-- FAVICONS -->
 		<link rel="shortcut icon" href="res/app-icons/favicon-16x16.png" type="image/png">
 
-		<!-- MANIFEST JSON -->
-		<link rel="manifest" href="manifest.json">
-
 		<!-- CSS LIBRARIES -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/white/pace-theme-flash.min.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-components-web@0.40.1/dist/material-components-web.min.css">
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 
 		<link rel="stylesheet" href="css/w3pro.css">
 		<link rel="stylesheet" href="css/code101.css">
@@ -58,9 +51,9 @@
 			<div class="mdc-drawer__header">
 				<h3 class="mdc-drawer__title codeadmin-logo">codeAdmin</h3>
 				<h6 class="mdc-drawer__subtitle">Let's code, let's manage</h6>
-				<div class="id_user">
-					<img src="res/user.png" class="profile_image"/>
-					<h6 class="mdc-typography--overline profile_name" >Username</h6>					
+				<div class="idUser">
+					<img src="res/user.png" class="profileImage"/>
+					<h6 class="mdc-typography--overline profileName" >Faça Login</h6>					
 				</div>
 				
 			</div>
@@ -113,20 +106,14 @@
 						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
 						<span class="mdc-list-item__text">Encerrar sessão</span>	
 					</a>
-
-
-	
 				</nav>
 			</div>
 		</aside>
-
 		<div class="mdc-drawer-scrim"></div>
 
 		<!-- TOP APP BAR -->
 		<header id="topAppBar" class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-menu-anchor w3-card">
 			<div class="mdc-top-app-bar__row">
-
-				<!-- LEFT SECTION -->
 				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
 
 					<!-- DRAWER BUTTON -->
@@ -140,19 +127,21 @@
 				<!-- RIGHT SECTION -->
 				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
 
-					<!-- SEARCH ICON -->
-					<i class="material-icons mdc-top-app-bar__action-item" aria-label="Pesquisar" alt="Pesquisar" onclick="toggleSearchBar('open')">search</i>
-
 				</section>
 			</div>
 		</header>
 
+		<div class="mdc-top-app-bar--fixed-adjust">
+			<div id="pageContent">
+				
+			</div>
+		</div>
 		
 
 		<!-- JS LIBRARIES -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/material-components-web@0.40.1/dist/material-components-web.min.js"></script>
-
 		<script src="js/code101.js"></script>
+		
 	</body>
 </html>

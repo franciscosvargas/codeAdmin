@@ -50,19 +50,16 @@ a:focus {text-decoration: none}
 
 
 
-
-
-
 /* ############ PROFILE ADMIN ########## */
 
-.id_user{
+.idUser{
 	background-color: firebrick;
 	margin-top: 10px;
 	border-radius: 5px;
 	padding: 10px;
 }
 
-.profile_image{
+.profileImage{
 	width: 52px;
 	height: 52px;
 	border-radius: 360px;
@@ -70,11 +67,40 @@ a:focus {text-decoration: none}
 	margin-right: 15px;
 }
 
-.profile_name{
+.profileName{
 	color: #fafafa;
 	font-size: 12px;
 }
 
-.profile_function{
-	margin: none;
+
+/*########## LOGIN.HTML ############*/
+
+.loginForm{
+	background-color: #fafafa;
+	width: 400px;
+	height: 300px;;
+	border-radius: 10px;
+	padding: 10px;
+	box-shadow:0 15px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	
+}
+
+.loginForm h1{
+	font-family: 'Press Start 2P';
+	color: firebrick;
+	font-size: 20px;
+}
+
+.loginForm button{
+	margin-top: 20px;
+	width: 250px;
+	height: 40px;
+	
+	background-color: firebrick !important;
+}
+
+.inputLogin{
+	margin-top: 10px;
+	width: 350px;
+	caret-color: firebrick !important;
 }
