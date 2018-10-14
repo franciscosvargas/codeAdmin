@@ -44,7 +44,7 @@
 		<link async rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link async rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 	</head>
-	<body>
+	<body onload="initApp();">
 
 		<!-- DRAWER -->
 		<aside class="mdc-drawer mdc-drawer--modal">
@@ -67,7 +67,7 @@
 						<span class="mdc-list-item__text">Dashboard</span>
 					</a>
 
-					<a class="mdc-list-item" aria-selected="true">
+					<a class="mdc-list-item" aria-selected="true" onclick="$('#pageContent').load('tabs/sugestoes.html'); drawer.open = false; listSuggestions();">
 						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">message</i>
 						<span class="mdc-list-item__text">Sugestões</span>
 					</a>
@@ -136,6 +136,16 @@
 				
 			</div>
 		</div>
+		<div class="mdc-snackbar mdc-snackbar--align-start"
+			aria-live="assertive"
+			aria-atomic="true"
+			aria-hidden="true"
+			data-mdc-auto-init="MDCSnackbar">
+			<div class="mdc-snackbar__text"></div>
+			<div class="mdc-snackbar__action-wrapper">
+				<button type="button" class="mdc-snackbar__action-button">Ok</button>
+			</div>
+		</div>
 		
 
 		<!-- JS LIBRARIES -->
@@ -156,6 +166,8 @@
 			  messagingSenderId: "681687653301"
 			};
 			firebase.initializeApp(config);
+
+			window.mdc.autoInit();
 		</script>
 
 		<script src="js/code101.js"></script>

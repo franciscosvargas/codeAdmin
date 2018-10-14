@@ -48,7 +48,13 @@ a:focus {text-decoration: none}
 	color: white !important;
 }
 
+.mdc-snackbar{
+	background-color: #fafafa !important;
+}
 
+.mdc-snackbar__text{
+	color: #323232 !important;
+}
 
 /* ############ PROFILE ADMIN ########## */
 
@@ -109,6 +115,39 @@ a:focus {text-decoration: none}
 }
 
 
+/*############ SUGGESTIONS HTML ######*/
+
+body{
+}
+
+.suggestionsList{
+	background-color: #fafafa;
+	max-height: 500px;
+	width: 50%;
+	border-radius: 10px;
+	box-shadow:0 15px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	position: relative;
+	float: left;
+	
+}
+
+.suggestionEdit{
+	display: none;
+	background-color: #fafafa;
+	width: 47%;
+	border-radius: 10px;
+	box-shadow:0 15px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	position: relative;
+	float: right;
+	padding: 10px;
+}
+
+.suggestionEdit h2{
+	font-weight: bold;	
+}
+
+
+
 @media (max-width: 460px) {
 	.loginForm{
 		background-color: #fafafa;
@@ -125,5 +164,16 @@ a:focus {text-decoration: none}
 		width: 250px;
 		caret-color: firebrick !important;
 	}
-	
+
+	.suggestionsList{
+		background-color: #fafafa;
+		max-height: 500px;
+		width: 100%;
+	}
+
+	.suggestionEdit{
+		width: 100%;
+		margin-top: 20px;
+
+	}
   }
