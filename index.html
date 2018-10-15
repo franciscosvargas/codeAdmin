@@ -62,18 +62,18 @@
 					<hr class="mdc-list-divider">
 					<h6 class="mdc-list-group__subheader">Gerencie:</h6>
 
-					<a onclick="drawer.open = false" id="itemDashboard" class="mdc-list-item mdc-list-item--activated" aria-selected="true">
+					<a onclick="drawer.open = false; $('#pageContent').load('tabs/dashboard.html');" id="itemDashboard" class="mdc-list-item mdc-list-item--activated" aria-selected="true">
 						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
 						<span class="mdc-list-item__text">Dashboard</span>
 					</a>
 
-					<a class="mdc-list-item" aria-selected="true" onclick="$('#pageContent').load('tabs/sugestoes.html'); drawer.open = false; listSuggestions();">
+					<a class="mdc-list-item" aria-selected="true" onclick="$('#pageContent').load('tabs/sugestoes.html'); drawer.open = false;">
 						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">message</i>
 						<span class="mdc-list-item__text">Sugestões</span>
 					</a>
 
 					<a class="mdc-list-item" aria-selected="true">
-						<i class="material-icons mdc-list-item__graphic" aria-hidden="true">contact_mail</i>
+						<i class="material-icons mdc-list-item__graphic" onclick="writeOnLog('aaaa2','bbb')" aria-hidden="true">contact_mail</i>
 						<span class="mdc-list-item__text">Enviar email</span>
 					</a>
 
@@ -132,7 +132,7 @@
 		</header>
 
 		<div class="mdc-top-app-bar--fixed-adjust">
-			<div id="pageContent">
+			<div id="pageContent" style="height: 100%;">
 				
 			</div>
 		</div>
@@ -146,7 +146,6 @@
 				<button type="button" class="mdc-snackbar__action-button">Ok</button>
 			</div>
 		</div>
-		
 
 		<!-- JS LIBRARIES -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

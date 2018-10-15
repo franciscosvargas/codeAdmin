@@ -118,11 +118,11 @@ a:focus {text-decoration: none}
 /*############ SUGGESTIONS HTML ######*/
 
 body{
+	height: 100%;
 }
 
 .suggestionsList{
 	background-color: #fafafa;
-	max-height: 500px;
 	width: 50%;
 	border-radius: 10px;
 	box-shadow:0 15px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
@@ -144,6 +144,11 @@ body{
 
 .suggestionEdit h2{
 	font-weight: bold;	
+}
+
+.ulSuggestion{
+	max-height: 550px; 
+	overflow-y: auto;
 }
 
 
@@ -175,5 +180,10 @@ body{
 		width: 100%;
 		margin-top: 20px;
 
+	}
+
+	.ulSuggestion{
+		max-height: 150px; 
+		overflow-y: auto;
 	}
   }

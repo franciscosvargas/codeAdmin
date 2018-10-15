@@ -3,7 +3,7 @@
     <body>
 
         <div class="suggestionsList">
-            <ul id="my-list" class="mdc-list mdc-list--two-line" aria-orientation="horizontal">
+            <ul id="my-list" class="mdc-list mdc-list--two-line ulSuggestion" aria-orientation="vertical" >
             </ul>
         </div>
 
@@ -11,17 +11,18 @@
                 <h2 id="editCommandName" class="mdc-typography--headline5">CommandName</h2>
                 <h1 id="editLanguageName" class="mdc-typography--subtitle1">LanguageName</h1>
                 <p  id="editMessage" class="mdc-typography--body1"></p>
-
-                    <div class="mdc-chip actionEditIndicator" style="float: left; display: none;">
-                          <div class="mdc-chip__text textActionEditIndicator"></div>
-                    </div>
-                
-
-                <div style="float: right;">
-                        <button class="mdc-icon-button material-icons buttonEditSuggestion" name="Foi inserido" onclick="addSuggestion()">done</button>
-                        <button class="mdc-icon-button material-icons buttonEditSuggestion" name="Voltar" onclick="$('.suggestionEdit').fadeOut(300);">keyboard_backspace</button>
-                        <button class="mdc-icon-button material-icons buttonEditSuggestion" name="Descartar sugestão" onclick="deleteSuggestion()">delete</button>
+                <div class="mdc-chip actionEditIndicator" style="float: left; display: none;">
+                    <div class="mdc-chip__text textActionEditIndicator"></div>
                 </div>
-            </div>
+                <div style="float: right;">
+                    <button class="mdc-icon-button material-icons buttonEditSuggestion" name="Foi inserido" onclick="addSuggestion()">done</button>
+                    <button class="mdc-icon-button material-icons buttonEditSuggestion" name="Voltar" onclick="$('.suggestionEdit').fadeOut(300);">keyboard_backspace</button>
+                    <button class="mdc-icon-button material-icons buttonEditSuggestion" name="Descartar sugestão" onclick="deleteSuggestion()">delete</button>
+                </div>
+        </div>
+
         <script src="js/code101.js"></script>
+        <script type="text/javascript">
+             listSuggestions();
+       </script>
     </body>

@@ -24,7 +24,6 @@ function initApp(){
 			setUserHeader();
 			$('.mdc-drawer__content').css('opacity',1);
 			$("#pageContent").load("tabs/dashboard.html");
-			
 		} else {
 			$('.mdc-drawer__content').css('opacity',0);
 			$("#pageContent").load("tabs/login.html"); 
@@ -38,17 +37,14 @@ function setUserHeader(){
 	var userNameRef = firebase.database().ref('admin/' + userId + '/name');
 	userNameRef.once('value').then(function(snapshot) {
 		$(".profileName").text(snapshot.val());
-		// ...
 	});
 
 	var userPictureRef = firebase.database().ref('admin/' + userId + '/profile');
 	userPictureRef.once('value').then(function(snapshot) {
 		$(".profileImage").attr('src', snapshot.val());
-		// ...
 	});
 	
 }
-
 // ################ SUGGESTIONS.HTML FUNCTIONS ##################
 
 function listSuggestions(){
@@ -65,7 +61,6 @@ function listSuggestions(){
 }
 
 var dataRef = [];
-
 function viewSuggestion(cID){
 	let count = 0;
 	let ref = firebase.database().ref('sugestions/'+ cID);
@@ -86,24 +81,22 @@ function viewSuggestion(cID){
 function deleteSuggestion(){
 	cID = $("#editCommandName").text();
 	let ref = firebase.database().ref('sugestions/' + cID);
-	$('.suggestionEdit').fadeOut(300);
 	ref.remove();
+	$('.suggestionEdit').fadeOut(300);
 	showSnackBar('Sugestão deletada');
+	writeOnLog("Descartou a sugestão: "+ cID);
 }
-
 
 function addSuggestion(){
 	cID = $("#editCommandName").text();
 	let ref = firebase.database().ref('sugestions/' + cID);
-	$('.suggestionEdit').fadeOut(300);
-	$.ajax({
-		type: "post",
-		url: "https://us-central1-code101-b884a.cloudfunctions.net/sugestaoAdicionada",
-		data: {commandName: dataRef[0], userEmail: dataRef[1]}
-	});
 	ref.remove();
+	$('.suggestionEdit').fadeOut(300);
+	cloudFunctions(urlBackendSugestaoAdicionada, {commandName: dataRef[0], userEmail: dataRef[1]}); 
 	showSnackBar("Confirmação de adição enviada");
+	writeOnLog("Confirmou a inserção da sugestão: "+ cID);
 }
+
 $('.buttonEditSuggestion').mouseenter(function(){
 	$('.actionEditIndicator').css('display','block');
 	
@@ -115,8 +108,7 @@ $('.buttonEditSuggestion').mouseleave(function(){
 });
 
 
-
-// FUNCTIONS FOR ALL THE PAGES
+// ################ FUNCTIONS FOR ALL THE PAGES #################
 
 function showSnackBar(message){
 	const snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
@@ -130,3 +122,19 @@ function showSnackBar(message){
 snackbar.show(dataObj);
 }
 
+function writeOnLog(message){
+	cloudFunctions(urlBackendWriteOnLog, {'username': firebase.auth().currentUser.uid, 'action': message});
+}
+
+function cloudFunctions(url, data){
+	$.ajax({
+		type: "post",
+		url: url,
+		data: data
+	});
+
+	return 0;
+}
+
+const urlBackendSugestaoAdicionada = "https://us-central1-code101-b884a.cloudfunctions.net/sugestaoAdicionada";
+const urlBackendWriteOnLog = "https://us-central1-code101-b884a.cloudfunctions.net/writeOnLog";
