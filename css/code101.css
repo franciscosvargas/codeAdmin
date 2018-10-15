@@ -17,12 +17,7 @@ a:focus {text-decoration: none}
 	padding: 10px;
 }
 
-#viewCard {
-	text-align: center;
-	margin-top: 10px;
-}
-
-#drawerBtn, #menu-btn, .mdc-menu-anchor {
+#drawerBtn,  .mdc-menu-anchor {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -32,7 +27,6 @@ a:focus {text-decoration: none}
 
 #topAppBar {font-size: 16px; background-color: firebrick;}
 
-#searchInput {outline: none}
 
 .material-icons-dark {color: rgba(0, 0, 0, 0.54) !important}
 
@@ -151,9 +145,24 @@ body{
 	overflow-y: auto;
 }
 
+/*############ SHOWLOG.HTML ##########*/ 
 
+.ulLog{
+	max-height: 550px; 
+	overflow-y: auto;
+}
+
+.logList{
+	background-color: #fafafa;
+	width: 100%;
+	border-radius: 10px;
+	box-shadow:0 15px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	position: relative;
+	float: left;	
+}
 
 @media (max-width: 460px) {
+	/* LOGIN */
 	.loginForm{
 		background-color: #fafafa;
 		width: 300px;
@@ -170,6 +179,7 @@ body{
 		caret-color: firebrick !important;
 	}
 
+	/* SUGGESTIONS*/
 	.suggestionsList{
 		background-color: #fafafa;
 		max-height: 500px;
@@ -185,5 +195,16 @@ body{
 	.ulSuggestion{
 		max-height: 150px; 
 		overflow-y: auto;
+	}
+
+	/* SHOW LOG*/
+
+	.ulLog{
+		max-height: 300px; 
+		overflow-y: auto;
+	}
+
+	.logList{
+		width: 100%;	
 	}
   }
