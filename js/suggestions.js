@@ -1,33 +1,32 @@
 
 function listSuggestions(){
-	listEmpty();
 	let ref = firebase.database().ref('sugestions/');
 		ref.on('child_added', function(data) {
 		let commandName = data.val().command;
 		let languageName = data.val().language;
-		$('#my-list').append(" <li class='mdc-list-item suggestionItem  mdc-list--avatar-list' id='"+commandName+"' onclick='viewSuggestion(this.id);'> <span class='mdc-list-item__graphic' role='presentation'> <i class='material-icons' aria-hidden='true'>message</i> </span> <span class='mdc-list-item__text'> <span class='mdc-list-item__primary-text'>"+commandName+"</span> <span class='mdc-list-item__secondary-text'>"+languageName+"</span> </span> </li>");
-		listEmpty();
+		$('#my-list').append(" <li class='mdc-list-item suggestionItem  mdc-list--avatar-list' id='"+data.key+"' onclick='viewSuggestion(this.id);'> <span class='mdc-list-item__graphic' role='presentation'> <i class='material-icons' aria-hidden='true'>message</i> </span> <span class='mdc-list-item__text'> <span class='mdc-list-item__primary-text'>"+commandName+"</span> <span class='mdc-list-item__secondary-text'>"+languageName+"</span> </span> </li>");
+		$("#listEmptyLi").remove();
 	});
 
 	ref.on('child_removed', function(data) {
-		$("#"+ data.val().command).remove().fadeOut(300);
+		$("#"+ data.key).remove().fadeOut(300);
 		listEmpty();
 	});
 	
 	
 }
-
-var dataRef = [];
+var dataRef = []; // DATA FROM SUGGESTION SELECTED
 function viewSuggestion(cID){
 	let count = 0;
+	dataRef[4] = cID;
 	let ref = firebase.database().ref('sugestions/'+ cID);
 	ref.once('value', function(snapshot) {
 		snapshot.forEach(function(childSnapshot) {
 		   dataRef[count] = childSnapshot.val();
 		   count++;
 		});
+		
 	});
-
 	$("#editCommandName").text(dataRef[0]);
 	$("#editLanguageName").text(dataRef[2]);
 	$("#editMessage").text(dataRef[3]);
@@ -36,25 +35,22 @@ function viewSuggestion(cID){
 }
 
 function deleteSuggestion(){
-	cID = $("#editCommandName").text();
-	let ref = firebase.database().ref('sugestions/' + cID);
+
+	let ref = firebase.database().ref('sugestions/' + dataRef[4]);
 	ref.remove();
 	$('.suggestionEdit').fadeOut(300);
 	showSnackBar('Sugestão deletada');
-	writeOnLog("Descartou a sugestão: "+ cID);
+	writeOnLog("Descartou a sugestão: "+ dataRef[0]);
 }
 
 function addSuggestion(){
-	cID = $("#editCommandName").text();
-	let ref = firebase.database().ref('sugestions/' + cID);
+	let ref = firebase.database().ref('sugestions/' + dataRef[4]);
 	ref.remove();
 	$('.suggestionEdit').fadeOut(300);
 	cloudFunctions(urlBackendSugestaoAdicionada, {commandName: dataRef[0], userEmail: dataRef[1]});
 	 
 	showSnackBar("Confirmação de adição enviada");
-	writeOnLog("Confirmou a inserção da sugestão: "+ cID);
-
-	return 0;
+	writeOnLog("Confirmou a inserção da sugestão: "+ dataRef[0]);
 }
 
 $('.buttonEditSuggestion').mouseenter(function(){
