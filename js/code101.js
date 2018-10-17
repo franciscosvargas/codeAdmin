@@ -72,5 +72,6 @@ function cloudFunctions(url, data){
 	});
 }
 
+var urlBackendSendEmail = "https://us-central1-code101-b884a.cloudfunctions.net/sendEmail";
 var urlBackendSugestaoAdicionada = "https://us-central1-code101-b884a.cloudfunctions.net/sugestaoAdicionada";
 var urlBackendWriteOnLog = "https://us-central1-code101-b884a.cloudfunctions.net/writeOnLog";

@@ -1,0 +1,33 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </head>
+    <body>
+
+        <div class="borderInput">
+            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                    <input type="text" id="tituloEmail" class="mdc-text-field__input">
+                    <label for="tf-outlined" class="mdc-floating-label">Título</label>
+                    <div class="mdc-notched-outline">
+                      <svg>
+                        <path class="mdc-notched-outline__path"/>
+                      </svg>
+                    </div>
+                    <div class="mdc-notched-outline__idle"></div>
+            </div>
+
+            <div id="textBodyEmail" class="mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
+                    <textarea id="textareaCorpoEmail" class="mdc-text-field__input" rows="8" cols="40"></textarea>
+                    <label  for="textarea" class="mdc-floating-label">Insira o corpo do texto</label>
+            </div>
+
+            <button class="mdc-button mdc-button--raised" id="sendEmail" onclick="sendEmail()">
+					Enviar
+			</button>
+        </div>
+        <script src="js/code101.js"></script>
+        <script src="js/sendEmail.js"></script>
+    </body>
+</html>
