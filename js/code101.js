@@ -4,10 +4,9 @@ $('.mdc-list-item').focus(function(){
 	this.blur();
 });
 
-
 // ################ FIREBASE USER CONFIGS #######################
 
-//  SIGN IN USER 
+//  Sign in user
 function login(){
 	let email = $("#userEmail").val();
 	let password = $("#userPassword").val();
@@ -17,47 +16,43 @@ function login(){
 	  });
 }
 
-// VERIFY IF USER IS LOGGED
+// Verify user is logged
 function initApp(){
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			// User is signed in.
+			
 			setUserHeader();
-			$('.mdc-drawer__content').css('opacity',1);
+			$('#topAppBar').css('display','block');
 			$("#pageContent").load("tabs/dashboard.html");
 		} else {
-			$('.mdc-drawer__content').css('opacity',0);
+			$('#topAppBar').css('display','none');
 			$("#pageContent").load("tabs/login.html"); 
 		}
 	});
 }
 
-// CHANGE INFORMATIONS FROM USER IN THE DRAWER HEADER
+// Change informations from user in the drawer header
 function setUserHeader(){
-	var userId = firebase.auth().currentUser.uid;
-	var userNameRef = firebase.database().ref('admin/' + userId + '/name');
-	userNameRef.once('value').then(function(snapshot) {
-		$(".profileName").text(snapshot.val());
-	});
+		/*firebase.auth().currentUser.updateProfile({
+			displayName: "Henrique",
+			photoURL: "https://firebasestorage.googleapis.com/v0/b/code101-b884a.appspot.com/o/henrique.png?alt=media&token=4737b966-f19f-4fe1-aead-e730665c6f9d"
+		});*/
 
-	var userPictureRef = firebase.database().ref('admin/' + userId + '/profile');
-	userPictureRef.once('value').then(function(snapshot) {
-		$(".profileImage").attr('src', snapshot.val());
-	});
+		$(".profileName").text(firebase.auth().currentUser.displayName);
+		$(".profileImage").attr('src', firebase.auth().currentUser.photoURL);
+	
 	
 }
 
-// SHOW SNACKBAR WITH MESSAGE
+// Show snackbar with message 
 function showSnackBar(message){
 	const snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
 	const dataObj = {
 		message: message,
 		actionText: 'OK',
-		actionHandler: function () {
-			console.log('my cool function');
-		}
 	};
-snackbar.show(dataObj);
+	snackbar.show(dataObj);
 }
 
 function writeOnLog(message){
@@ -73,5 +68,5 @@ function cloudFunctions(url, data){
 }
 
 var urlBackendSendEmail = "https://us-central1-code101-b884a.cloudfunctions.net/sendEmail";
-var urlBackendSugestaoAdicionada = "https://us-central1-code101-b884a.cloudfunctions.net/sugestaoAdicionada";
+var urlBackendAddedSuggestion = "https://us-central1-code101-b884a.cloudfunctions.net/addedSuggestion";
 var urlBackendWriteOnLog = "https://us-central1-code101-b884a.cloudfunctions.net/writeOnLog";

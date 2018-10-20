@@ -11,10 +11,15 @@
             </ul>
         </div>
 
+        <button onclick="clearLog()" class="mdc-fab app-fab--absolute" aria-label="Clear_All">
+                <span class="mdc-fab__icon material-icons">clear_all</span>
+        </button>
+
         <!-- SCRIPTS-->
         <script src="js/code101.js"></script>
         <script src="js/log.js"></script>
         <script>
+            listEmpty();
             getItemLog();
         </script>
     </body>
