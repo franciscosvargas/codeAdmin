@@ -22,7 +22,7 @@ function insertItemOnList(username, action, date, key){
             $('#my-list-2').append(" <li class='mdc-list-item Item  mdc-list--avatar-list' id='"+key+"' onclick='viewSuggestion(this.id);'> <img class='mdc-list-item__graphic' src="+foto+" role='presentation'></img> <span class='mdc-list-item__text'> <span class='mdc-list-item__primary-text'>"+action+"</span> <span class='mdc-list-item__secondary-text'>"+date+"</span> </span> </li>").fadeIn(300);
             $("#listEmptyLi").remove();
             $('.mdc-fab').show();
-        });  
+});  
 
 }
 

@@ -1,18 +1,19 @@
 drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector(".mdc-drawer"));
 
-$('.mdc-list-item').focus(function(){
-	this.blur();
-});
-
 // ################ FIREBASE USER CONFIGS #######################
 
 //  Sign in user
 function login(){
 	let email = $("#userEmail").val();
 	let password = $("#userPassword").val();
+	
 	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-		var errorMessage = error.message;
-		console.log(errorMessage);	
+		var errorCode = error.code;
+		if (errorCode === 'auth/wrong-password') {
+			$("#captionErrorLogin").text('Senha incorreta.');
+		  } else if (errorCode === 'auth/user-not-found')  {
+			$("#captionErrorLogin").text('Usuário não encontrado.');
+		  }	
 	  });
 }
 
@@ -21,7 +22,6 @@ function initApp(){
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			// User is signed in.
-			
 			setUserHeader();
 			$('#topAppBar').css('display','block');
 			$("#pageContent").load("tabs/dashboard.html");
@@ -34,17 +34,9 @@ function initApp(){
 
 // Change informations from user in the drawer header
 function setUserHeader(){
-		/*firebase.auth().currentUser.updateProfile({
-			displayName: "Henrique",
-			photoURL: "https://firebasestorage.googleapis.com/v0/b/code101-b884a.appspot.com/o/henrique.png?alt=media&token=4737b966-f19f-4fe1-aead-e730665c6f9d"
-		});*/
-
 		$(".profileName").text(firebase.auth().currentUser.displayName);
 		$(".profileImage").attr('src', firebase.auth().currentUser.photoURL);
-	
-	
 }
-
 // Show snackbar with message 
 function showSnackBar(message){
 	const snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));

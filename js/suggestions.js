@@ -5,7 +5,8 @@ function listSuggestions(){
 			let languageName = data.val().language;
 			let moderate = data.val().moderation;
 			if(moderate != true){
-				$('#my-list').append(" <li class='mdc-list-item suggestionItem  mdc-list--avatar-list' id='"+data.key+"' onclick='viewSuggestion(this.id);'> <span class='mdc-list-item__graphic' role='presentation'> <i class='material-icons' aria-hidden='true'>message</i> </span> <span class='mdc-list-item__text'> <span class='mdc-list-item__primary-text'>"+commandName+"</span> <span class='mdc-list-item__secondary-text'>"+languageName+"</span> </span> </li>");
+				$('#my-list').append("<li class='mdc-list-item suggestionItem  mdc-list--avatar-list' id='"+data.key+"' onclick='viewSuggestion(this.id);'> <span class='mdc-list-item__graphic' role='presentation'> <i class='material-icons' aria-hidden='true'>message</i> </span> <span class='mdc-list-item__text'> <span class='mdc-list-item__primary-text'>"+commandName+"</span> <span class='mdc-list-item__secondary-text'>"+languageName+"</span> </span> </li>");
+				console.log(data.key+"Adicionada");
 				$("#listEmptyLi").remove();
 			}			
 	});
